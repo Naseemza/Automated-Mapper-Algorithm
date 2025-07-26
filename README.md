@@ -29,42 +29,6 @@ The toolkit utilizes **persistent homology**, **Vietoris-Rips complexes**, and t
 
 ---
 
-## 📐 Mathematical Foundations
-
-### 1. Persistent Homology
-
-Given a point cloud $X = \{x_1, ..., x_n\} \subset \mathbb{R}^d$:
-
-- **Vietoris–Rips Complex** at scale $t$:
-  $$
-  K_t = \left\{ \sigma \subseteq X \mid \text{diam}(\sigma) \leq t \right\}, \quad \text{diam}(\sigma) = \max_{x,y \in \sigma} d(x,y)
-  $$
-
-- **Persistence Diagram**:
-  Tracks birth-death pairs of homological features $H_k(K_t)$:
-  $$
-  H_k(K_t) = \bigoplus_i \mathbb{F}^{(b_i,d_i]}, \quad \beta_k(t) = \text{rank}(H_k(K_t))
-  $$
-
-### 2. Mapper Graphs
-
-Given a filter function $f: X \to \mathbb{R}^d$:
-
-- **Cover**:
-  $$
-  \mathcal{U} = \{U_i\}_{i=1}^N \text{ where } \bigcup_i U_i \supseteq f(X)
-  $$
-
-- **Clustering in Pullbacks**:
-  $$
-  C_{i,j} = \text{connected components}(f^{-1}(U_i)) \quad \text{(e.g., via DBSCAN)}
-  $$
-
-- **Graph Construction**:
-  Vertices represent clusters; edges are shared points:
-  $$
-  (C_{i,j}, C_{k,l}) \in E \iff C_{i,j} \cap C_{k,l} \neq \emptyset
-  $$
 
 
 
